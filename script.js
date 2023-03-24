@@ -26,14 +26,3 @@ manipulateData([1, 2, 3, 4]).then((result) => {
   document.getElementById("output").textContent = result.join(", ");
 });
 
-describe("transforming-data-with-promise-chaining-solution", () => {
-  it("Check for array", () => {
-    cy.visit("index.html");
-    cy.window().then((win) => {
-      const expectedOutput = "2, 4";
-      const promise = win.manipulateData([1, 2, 3, 4]);
-      cy.wrap(promise).should("eventually.deep.equal", [2, 4]);
-      cy.contains("#output", expectedOutput).should("be.visible");
-    });
-  });
-});
