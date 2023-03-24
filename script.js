@@ -1,4 +1,3 @@
-//your JS code here. If required.
 function manipulateData(inputArray) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
