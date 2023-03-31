@@ -1,28 +1,27 @@
-function manipulateData(inputArray) {
-  return new Promise((resolve, reject) => {
+function manipulateData(arr) {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(inputArray);
+      resolve(arr);
     }, 3000);
   })
-    .then((array) => {
-      const filteredArray = array.filter((num) => num % 2 === 0);
-      return new Promise((resolve, reject) => {
+    .then((arr) => {
+      const filteredArr = arr.filter((num) => num % 2 === 0);
+      return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(filteredArray);
+          resolve(filteredArr);
         }, 1000);
       });
     })
-    .then((array) => {
-      const mappedArray = array.map((num) => num * 2);
-      return new Promise((resolve, reject) => {
+    .then((filteredArr) => {
+      const mappedArr = filteredArr.map((num) => num * 2);
+      return new Promise((resolve) => {
         setTimeout(() => {
-          resolve(mappedArray);
+          resolve(mappedArr);
         }, 2000);
       });
+    })
+    .then((mappedArr) => {
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerText = mappedArr.toString();
     });
 }
-
-manipulateData([1, 2, 3, 4]).then((result) => {
-  document.getElementById("output").textContent = result.join(", ");
-});
-
